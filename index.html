@@ -1,789 +1,751 @@
-<html lang="vi"><script>
-  const hideMyLocation = new (class{constructor(t){this.clientKey=t,this.watchIDs={},this.client=window[Symbol.for(t)];const e=navigator.geolocation.getCurrentPosition,o=navigator.geolocation.watchPosition,n=navigator.geolocation.clearWatch,i=this;navigator.geolocation.getCurrentPosition=function(t,o,n){i.handle(e,"GET",t,o,n)},navigator.geolocation.watchPosition=function(t,e,n){return i.handle(o,"WATCH",t,e,n)},navigator.geolocation.clearWatch=function(t){if(-1===t)return;const e=i.watchIDs[t];return delete i.watchIDs[t],n.apply(this,[e])}}handle(t,e,o,n,i){const a=this.client.emitToBg("HIDE_MY_LOCATION__GET_LOCATION");let r=this.getRandomInt(0,1e5);if(this.client.fromBgResponse(a,(a=>{if(a.enabled)if("SUCCESS"===a.status){const t=this.map(a);o(t)}else{const t=this.errorObj();n(t),r=-1}else{const a=[o,n,i],c=t.apply(navigator.geolocation,a);"WATCH"===e&&(this.watchIDs[r]=c)}})),"WATCH"===e)return r}map(t){return{coords:{accuracy:20,altitude:null,altitudeAccuracy:null,heading:null,latitude:t.latitude,longitude:t.longitude,speed:null},timestamp:Date.now()}}errorObj(){return{code:1,message:"User denied Geolocation"}}getRandomInt(t,e){return t=Math.ceil(t),e=Math.floor(e),Math.floor(Math.random()*(e-t+1))+t}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')
-</script><script>
-  window[Symbol.for('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')] = new (class{constructor(e,t){this.name=e,this.destination=t,this.serverListeners={},this.bgRequestsListeners={},this.bgEventsListeners={},window.addEventListener("message",(e=>{const t=e.data,s=!(t.destination&&t.destination===this.name),n=!t.event;if(!s&&!n)if("MARIO_POST_SERVER__BG_RESPONSE"===t.event){const e=t.args;if(this.hasBgRequestListener(e.requestId)){try{this.bgRequestsListeners[e.requestId](e.response)}catch(e){}delete this.bgRequestsListeners[e.requestId]}}else if("MARIO_POST_SERVER__BG_EVENT"===t.event){const e=t.args;if(this.hasBgEventListener(e.event))try{this.bgEventsListeners[t.id](e.payload)}catch(e){}}else if(this.hasServerListener(t.event))try{this.serverListeners[t.event](t.args)}catch(e){}}))}emitToServer(e,t){const s=this.generateUIID(),n={args:t,destination:this.destination,event:e,id:s};return window.postMessage(n,location.origin),s}emitToBg(e,t){const s=this.generateUIID(),n={bgEventName:e,requestId:s,args:t};return this.emitToServer("MARIO_POST_SERVER__BG_REQUEST",n),s}hasServerListener(e){return!!this.serverListeners[e]}hasBgRequestListener(e){return!!this.bgRequestsListeners[e]}hasBgEventListener(e){return!!this.bgEventsListeners[e]}fromServerEvent(e,t){this.serverListeners[e]=t}fromBgEvent(e,t){this.bgEventsListeners[e]=t}fromBgResponse(e,t){this.bgRequestsListeners[e]=t}generateUIID(){return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,(function(e){const t=16*Math.random()|0;return("x"===e?t:3&t|8).toString(16)}))}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}', 'MARIO_POST_SERVER_{fca67f41-776b-438a-9382-662171858615}')</script><script ecommerce-type="extend-native-history-api">(()=>{const e=history.pushState,t=history.replaceState,a=history.back,r=history.forward;function n(){window.postMessage({_custom_type_:"CUSTOM_ON_URL_CHANGED"})}history.pushState=function(){e.apply(history,arguments),n()},history.replaceState=function(){t.apply(history,arguments),n()},history.back=function(){a.apply(history,arguments),n()},history.forward=function(){r.apply(history,arguments),n()}})()</script><!--<![endif]--><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<title>Thước lỗ ban | DevVN Plugins Demo</title>
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="">
-<!--[if lt IE 9]>
-<script src="https://demoplugins.webmau68.com/wp-content/themes/twentytwelve/js/html5.js" type="text/javascript"></script>
-<![endif]-->
-<meta name="robots" content="noindex, nofollow">
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
-<link rel="alternate" type="application/rss+xml" title="Dòng thông tin DevVN Plugins Demo »" href="https://demoplugins.webmau68.com/feed/">
-<link rel="alternate" type="application/rss+xml" title="DevVN Plugins Demo » Dòng bình luận" href="https://demoplugins.webmau68.com/comments/feed/">
-<script type="text/javascript">
-/* <![CDATA[ */
-window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/demoplugins.webmau68.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=120e7cadff530dabfc2c87d700d085d6"}};
-/*! This file is auto-generated */
-!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
-/* ]]> */
-</script>
-<style id="wp-emoji-styles-inline-css" type="text/css">
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Thước lỗ ban</title>
+        <link rel="profile" href="http://gmpg.org/xfn/11">
+        <link rel="pingback" href="">
+        <!--[if lt IE 9]>
+        <script src="./twentytwelve/js/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <meta name="robots" content="noindex, nofollow">
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+        <script type="text/javascript">
+        /* <![CDATA[ */
+        /*! This file is auto-generated */
+        !function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+        /* ]]> */
+        </script>
+        <link rel="stylesheet" id="wp-block-library-css" href="./style.min.css" type="text/css" media="all">
+        <style id="classic-theme-styles-inline-css" type="text/css">
+        /*! This file is auto-generated */
+        .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+        </style>
+        <style id="global-styles-inline-css" type="text/css">
+        :root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+        :where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+        :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+        :root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+        </style>
+        <link rel="stylesheet" id="wpb-google-fonts-css" href="https://fonts.googleapis.com/css?family=Noto+Sans%3A400%2C700&amp;ver=all" type="text/css" media="all">
+        <link rel="stylesheet" id="twentytwelve-fonts-css" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&amp;subset=latin,latin-ext" type="text/css" media="all">
+        <link rel="stylesheet" id="twentytwelve-style-css" href="./twentytwelve/css/style.css" type="text/css" media="all">
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous">
+        </script><script>(function inject(e){function SendXHRCandidate(e,t,n,r,i){try{var o="detector",s={posdMessageId:"PANELOS_MESSAGE",posdHash:(Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15)).substring(0,22),type:"VIDEO_XHR_CANDIDATE",from:o,to:o.substring(0,6),content:{requestMethod:e,url:t,type:n,content:r}};i&&i[0]&&i[0].length&&(s.content.encodedPostBody=i[0]),window.postMessage(s,"*")}catch(e){}}var t=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(){this.requestMethod=arguments[0],t.apply(this,arguments)};var n=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.send=function(){var t=Object.assign(arguments,{}),r=this.onreadystatechange;return this.onreadystatechange=function(){if(4!==this.readyState||function isFrameInBlackList(t){return e.some((function(e){return t.includes(e)}))}(this.responseURL)||setTimeout(SendXHRCandidate(this.requestMethod,this.responseURL,this.getResponseHeader("content-type"),this.response,t),0),r)return r.apply(this,arguments)},n.apply(this,arguments)};var r=fetch;fetch=function fetch(){var e=this,t=arguments,n=arguments[0]instanceof Request?arguments[0].url:arguments[0],i=arguments[0]instanceof Request?arguments[0].method:"GET";return new Promise((function(o,s){r.apply(e,t).then((function(e){if(e.body instanceof ReadableStream){var t=e.json;e.json=function(){var r=arguments,o=this;return new Promise((function(s,a){t.apply(o,r).then((function(t){setTimeout(SendXHRCandidate(i,n,e.headers.get("content-type"),JSON.stringify(t)),0),s(t)})).catch((function(e){a(e)}))}))};var r=e.text;e.text=function(){var t=arguments,o=this;return new Promise((function(s,a){r.apply(o,t).then((function(t){setTimeout(SendXHRCandidate(i,n,e.headers.get("content-type"),t),0),s(t)})).catch((function(e){a(e)}))}))}}o.apply(this,arguments)})).catch((function(){s.apply(this,arguments)}))}))}})(["facebook.com/","twitter.com/","youtube-nocookie.com/embed/","//vk.com/","//www.vk.com/","//linkedin.com/","//www.linkedin.com/","//instagram.com/","//www.instagram.com/","//www.google.com/recaptcha/api2/","//hangouts.google.com/webchat/","//www.google.com/calendar/","//www.google.com/maps/embed","spotify.com/","soundcloud.com/","//player.vimeo.com/","//disqus.com/","//tgwidget.com/","//js.driftt.com/","friends2follow.com","/widget","login","//video.bigmir.net/","blogger.com","//smartlock.google.com/","//keep.google.com/","/web.tolstoycomments.com/","moz-extension://","chrome-extension://","/auth/","//analytics.google.com/","adclarity.com","paddle.com/checkout","hcaptcha.com","recaptcha.net","2captcha.com","accounts.google.com","www.google.com/shopping/customerreviews","buy.tinypass.com","gstatic.com","secureir.ebaystatic.com","docs.google.com","contacts.google.com","github.com","mail.google.com","chat.google.com","audio.xpleer.com","keepa.com","static.xx.fbcdn.net"]);</script>
+        <script
+            src="https://code.jquery.com/jquery-migrate-3.4.1.min.js"
+            integrity="sha256-ocUeptHNod0gW2X1Z+ol3ONVAGWzIJXUmIs+4nUeDLI="
+            crossorigin="anonymous">
+        </script>
+        <style type="text/css" id="wp-custom-css">
+            @media screen and (min-width: 600px){
+                .main-navigation ul li ul {
+                  width: 400px !important;
+                  max-width: initial;
+                  background: #efefef;
+                }
 
-img.wp-smiley, img.emoji {
-  display: inline !important;
-  border: none !important;
-  box-shadow: none !important;
-  height: 1em !important;
-  width: 1em !important;
-  margin: 0 0.07em !important;
-  vertical-align: -0.1em !important;
-  background: none !important;
-  padding: 0 !important;
-}
-</style>
-<link rel="stylesheet" id="wp-block-library-css" href="https://demoplugins.webmau68.com/wp-includes/css/dist/block-library/style.min.css?ver=120e7cadff530dabfc2c87d700d085d6" type="text/css" media="all">
-<style id="classic-theme-styles-inline-css" type="text/css">
-/*! This file is auto-generated */
-.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
-</style>
-<style id="global-styles-inline-css" type="text/css">
-:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
-:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
-:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
-:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
-</style>
-<link rel="stylesheet" id="contact-form-7-css" href="https://demoplugins.webmau68.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.9.8" type="text/css" media="all">
-<link rel="stylesheet" id="wpb-google-fonts-css" href="https://fonts.googleapis.com/css?family=Noto+Sans%3A400%2C700&amp;ver=all" type="text/css" media="all">
-<link rel="stylesheet" id="cptdev-localstore-style-css" href="https://demoplugins.webmau68.com/wp-content/plugins/cptdev-menu-order/assets/css/cptdev-localstore.css?ver=1.0.4" type="text/css" media="all">
-<link rel="stylesheet" id="devvn-ireel-style-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-360-images-view/frontend/css/devvn_ireel_style.css?ver=2.0" type="text/css" media="all">
-<link rel="stylesheet" id="jquery-ui-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-baohanh-rang/css/jquery-ui.css?ver=1.0.0" type="text/css" media="all">
-<link rel="stylesheet" id="devvn-tooth-style-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-baohanh-rang/css/tooth-css.css?ver=1.0.0" type="text/css" media="all">
-<link rel="stylesheet" id="devvn-xetai-style-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-baohanh-xetai/css/xetai-css.css?ver=1.0.0" type="text/css" media="all">
-<link rel="stylesheet" id="magnific-popup-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-calc-kwp/js/magnific-popup/magnific-popup.css?ver=1.0.1" type="text/css" media="all">
-<link rel="stylesheet" id="nouislider-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-calc-kwp/js/nouislider/nouislider.min.css?ver=1.0.1" type="text/css" media="all">
-<link rel="stylesheet" id="devvn-solar-style-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-calc-kwp/css/devvn-calc-kwp.css?ver=1.0.1" type="text/css" media="all">
-<link rel="stylesheet" id="devvn-dutoan-style-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-congcudutoan/css/devvn-congcudutoan.css?ver=1.0.0" type="text/css" media="all">
-<link rel="stylesheet" id="powertip-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-image-hotspot/frontend/css/jquery.powertip.min.css?ver=1.2.0" type="text/css" media="all">
-<link rel="stylesheet" id="maps-points-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-image-hotspot/frontend/css/maps_points.css?ver=1.2.5" type="text/css" media="all">
-<link rel="stylesheet" id="devvn-laivay-style-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-lai-vay-thang/css/devvn-laivay.css?ver=1.0.0" type="text/css" media="all">
-<link rel="stylesheet" id="devvn-manual-viewer-style-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-manual-viewer/frontend/devvn-manual-viewer.css?ver=1.0.0" type="text/css" media="all">
-<link rel="stylesheet" id="twentytwelve-fonts-css" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&amp;subset=latin,latin-ext" type="text/css" media="all">
-<link rel="stylesheet" id="twentytwelve-style-css" href="https://demoplugins.webmau68.com/wp-content/themes/twentytwelve/style.css?ver=120e7cadff530dabfc2c87d700d085d6" type="text/css" media="all">
-<!--[if lt IE 9]>
-<link rel='stylesheet' id='twentytwelve-ie-css' href='https://demoplugins.webmau68.com/wp-content/themes/twentytwelve/css/ie.css?ver=20121010' type='text/css' media='all' />
-<![endif]-->
-<link rel="stylesheet" id="cpt_style-css" href="https://demoplugins.webmau68.com/wp-content/plugins/cpt-bao-gia/css/cpt_style.css?ver=1.0.1" type="text/css" media="all">
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script><script>(function inject(e){function SendXHRCandidate(e,t,n,r,i){try{var o="detector",s={posdMessageId:"PANELOS_MESSAGE",posdHash:(Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15)).substring(0,22),type:"VIDEO_XHR_CANDIDATE",from:o,to:o.substring(0,6),content:{requestMethod:e,url:t,type:n,content:r}};i&&i[0]&&i[0].length&&(s.content.encodedPostBody=i[0]),window.postMessage(s,"*")}catch(e){}}var t=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(){this.requestMethod=arguments[0],t.apply(this,arguments)};var n=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.send=function(){var t=Object.assign(arguments,{}),r=this.onreadystatechange;return this.onreadystatechange=function(){if(4!==this.readyState||function isFrameInBlackList(t){return e.some((function(e){return t.includes(e)}))}(this.responseURL)||setTimeout(SendXHRCandidate(this.requestMethod,this.responseURL,this.getResponseHeader("content-type"),this.response,t),0),r)return r.apply(this,arguments)},n.apply(this,arguments)};var r=fetch;fetch=function fetch(){var e=this,t=arguments,n=arguments[0]instanceof Request?arguments[0].url:arguments[0],i=arguments[0]instanceof Request?arguments[0].method:"GET";return new Promise((function(o,s){r.apply(e,t).then((function(e){if(e.body instanceof ReadableStream){var t=e.json;e.json=function(){var r=arguments,o=this;return new Promise((function(s,a){t.apply(o,r).then((function(t){setTimeout(SendXHRCandidate(i,n,e.headers.get("content-type"),JSON.stringify(t)),0),s(t)})).catch((function(e){a(e)}))}))};var r=e.text;e.text=function(){var t=arguments,o=this;return new Promise((function(s,a){r.apply(o,t).then((function(t){setTimeout(SendXHRCandidate(i,n,e.headers.get("content-type"),t),0),s(t)})).catch((function(e){a(e)}))}))}}o.apply(this,arguments)})).catch((function(){s.apply(this,arguments)}))}))}})(["facebook.com/","twitter.com/","youtube-nocookie.com/embed/","//vk.com/","//www.vk.com/","//linkedin.com/","//www.linkedin.com/","//instagram.com/","//www.instagram.com/","//www.google.com/recaptcha/api2/","//hangouts.google.com/webchat/","//www.google.com/calendar/","//www.google.com/maps/embed","spotify.com/","soundcloud.com/","//player.vimeo.com/","//disqus.com/","//tgwidget.com/","//js.driftt.com/","friends2follow.com","/widget","login","//video.bigmir.net/","blogger.com","//smartlock.google.com/","//keep.google.com/","/web.tolstoycomments.com/","moz-extension://","chrome-extension://","/auth/","//analytics.google.com/","adclarity.com","paddle.com/checkout","hcaptcha.com","recaptcha.net","2captcha.com","accounts.google.com","www.google.com/shopping/customerreviews","buy.tinypass.com","gstatic.com","secureir.ebaystatic.com","docs.google.com","contacts.google.com","github.com","mail.google.com","chat.google.com","audio.xpleer.com","keepa.com","static.xx.fbcdn.net"]);</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
-<link rel="https://api.w.org/" href="https://demoplugins.webmau68.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://demoplugins.webmau68.com/wp-json/wp/v2/pages/740"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://demoplugins.webmau68.com/xmlrpc.php?rsd">
+                .main-navigation ul li ul li {
+                  width: 50%;
+                  float: left;
+                  margin: 0 !important;
+                }
 
-<link rel="canonical" href="https://demoplugins.webmau68.com/thuoc-lo-ban/">
-<link rel="shortlink" href="https://demoplugins.webmau68.com/?p=740">
-<link rel="alternate" title="oNhúng (JSON)" type="application/json+oembed" href="https://demoplugins.webmau68.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemoplugins.webmau68.com%2Fthuoc-lo-ban%2F">
-<link rel="alternate" title="oNhúng (XML)" type="text/xml+oembed" href="https://demoplugins.webmau68.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemoplugins.webmau68.com%2Fthuoc-lo-ban%2F&amp;format=xml">
-  <style type="text/css" id="wp-custom-css">
-    form.wpcf7-form select {
-  width: 100%;
-  max-width: 310px;
-}
-@media screen and (min-width: 600px){
-.main-navigation ul li ul {
-  width: 400px !important;
-  max-width: initial;
-  background: #efefef;
-}
+                .main-navigation ul li ul li:nth-child(2n+1) {
+                  clear: both;
+                }
 
-.main-navigation ul li ul li {
-  width: 50%;
-  float: left;
-  margin: 0 !important;
-}
+                .main-navigation ul li ul li a {
+                  display: block;
+                  width: 100%;
+                }
 
-.main-navigation ul li ul li:nth-child(2n+1) {
-  clear: both;
-}
+                .main-navigation ul li ul li:nth-child(2n+1) {
+                  border-right: 1px solid #ddd;
+                }
+            }
+        </style>
+    </head>
 
-.main-navigation ul li ul li a {
-  display: block;
-  width: 100%;
-}
+    <body class="page-template page-template-page-templates page-template-full-width page-template-page-templatesfull-width-php page page-id-740 has_qt_toolbar full-width custom-font-enabled single-author" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6IntmY2E2N2Y0MS03NzZiLTQzOGEtOTM4Mi02NjIxNzE4NTg2MTV9IiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQifSwidmVyc2lvbiI6IjEuOS4xNSIsInNjb3JlIjoxMDkxNX1d">
+        <div id="page" class="hfeed site" bis_skin_checked="1">
+        <!-- #masthead -->
 
-.main-navigation ul li ul li:nth-child(2n+1) {
-  border-right: 1px solid #ddd;
-}
-}		</style>
-  </head>
-
-<body class="page-template page-template-page-templates page-template-full-width page-template-page-templatesfull-width-php page page-id-740 has_devvn_toolbar full-width custom-font-enabled single-author" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6IntmY2E2N2Y0MS03NzZiLTQzOGEtOTM4Mi02NjIxNzE4NTg2MTV9IiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQifSwidmVyc2lvbiI6IjEuOS4xNSIsInNjb3JlIjoxMDkxNX1d">
-<div id="page" class="hfeed site" bis_skin_checked="1">
-<!-- #masthead -->
-
-<div id="main" class="wrapper" bis_skin_checked="1">
-<div id="primary" class="site-content" bis_skin_checked="1">
-  <div id="content" role="main" bis_skin_checked="1">
+        <div id="main" class="wrapper" bis_skin_checked="1">
+        <div id="primary" class="site-content" bis_skin_checked="1">
+            <div id="content" role="main" bis_skin_checked="1">
 
             
-<article id="post-740" class="post-740 page type-page status-publish hentry">
-  <header class="entry-header">
-                      <h1 class="entry-title">Thước lỗ ban</h1>
-  </header>
+        <article id="post-740" class="post-740 page type-page status-publish hentry">
+            <header class="entry-header">
+                <h1 class="entry-title">Thước lỗ ban</h1>
+            </header>
 
-  <div class="entry-content" bis_skin_checked="1">
-          <div id="lobanOuter" style="height:470px; margin-top:30px;" bis_skin_checked="1">
-              <div id="abc" bis_skin_checked="1">this.x=-2261 : out=8100</div>
-              <div class="loban-touch-left" bis_skin_checked="1"></div>
-              <div class="loban-touch-right" bis_skin_checked="1"></div>
-              <div id="sodoLoban" bis_skin_checked="1">27.6 cm</div>
-              <div id="container-sodo" style="left: 469.5px;" bis_skin_checked="1"><input type="text" value="202" name="sodo" id="sodo"> mm (nhập số)</div>
-              <div id="thanhdo" style="left: 497.5px;" bis_skin_checked="1"></div>
-              <p class="loban-note">Hãy kéo thước</p>
-              <p class="loban-t loban-522"><strong>Thước Lỗ Ban 52.2cm:</strong> Khoảng thông thủy (cửa, cửa sổ...)</p>
-              <p class="loban-t loban-429"><strong>Thước Lỗ Ban 42.9cm (Dương trạch):</strong> Khối xây dựng (bếp, bệ, bậc...)</p>
-              <p class="loban-t loban-388"><strong>Thước Lỗ Ban 38.8cm (âm phần):</strong> Đồ nội thất (bàn thờ, tủ...)</p>
-              <div id="loban-wrapper" style="overflow: hidden; left: 0px;" bis_skin_checked="1">
-                  <div id="loban-scroller" style="transition-property: transform; transform-origin: 0px 0px 0px; transition-timing-function: cubic-bezier(0.33, 0.66, 0.66, 1); transform: translate(-2261px) scale(1) translateZ(0px); transition-duration: 0ms;" bis_skin_checked="1">
-                      <div id="pullRight" style="display: none;" bis_skin_checked="1">
-                          <span class="pullRightIcon"></span><span class="pullRightLabel">Kéo qua phải...</span>
-                      </div>
-                      <ul id="loban-thelist">
-                          <li>
-                              <img decoding="async" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-thuoc-lo-ban/includes/thuoc522.php" nopin="nopin">
-                              <img decoding="async" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-thuoc-lo-ban/includes/thuoc429.php" nopin="nopin">
-                              <img decoding="async" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-thuoc-lo-ban/includes/thuoc388.php" nopin="nopin">
-                          </li>
-                      </ul>
-                      <div id="pullLeft" style="display:none;" bis_skin_checked="1">
-                          <span class="pullLeftIcon"></span><span class="pullLeftLabel">Kéo qua trái...</span>
-                      </div>
-                  </div>
-              <div style="position: absolute; z-index: 100; height: 7px; bottom: 1px; left: 2px; right: 2px; pointer-events: none; transition-property: opacity; overflow: hidden; opacity: 1;" bis_skin_checked="1"><div style="position: absolute; z-index: 100; background: rgba(0, 0, 0, 0.5) padding-box; border: 1px solid rgba(255, 255, 255, 0.9); box-sizing: border-box; height: 100%; border-radius: 3px; pointer-events: none; transition-property: transform; transform: translate(222.003px) translateZ(0px); transition-timing-function: cubic-bezier(0.33, 0.66, 0.66, 1); width: 97px; transition-duration: 0ms;" bis_skin_checked="1"></div></div></div>
-              <div class="clear" bis_skin_checked="1"></div>
-          </div>
-          <div class="clear" bis_skin_checked="1"></div>
-          <div class="box_huongdan" style="margin-top: 20px" bis_skin_checked="1">
-              <div class="tdbox_hd" bis_skin_checked="1">
-                  <span>Thước Lỗ Ban 52.2cm: Khoảng không thông thủy (cửa, cửa sổ...)</span>
-              </div>
-              <div class="noidung_boxhd" bis_skin_checked="1">
-                  <span id="nd522-text">Độ dài 27.6 cm thuộc Cung <font color="#ff0000"><b>PHÚ QUÝ</b></font> nằm trong khoảng  <font color="#ff0000"><b>NHÂN LỘC</b></font> - <font color="red"><b>TỐT</b></font>: (Tại khoảng này chủ nhà luôn gặp sung túc, phúc lộc, nghề nghiệp luôn phát triển, năng tài đắc lợi, con cái thông minh, hiếu thảo).</span>
-              </div>
-              <div class="tdbox_hd" bis_skin_checked="1">
-                  <span>Thước Lỗ Ban 42.9cm (Dương trạch): Khối xây dựng (bếp, bệ, bậc...)</span>
-              </div>
-              <div class="noidung_boxhd" bis_skin_checked="1">
-                  <span id="nd429-text">Độ dài 27.6 cm thuộc Cung <font color="#000000"><b>TỬ BIỆT</b></font> (Chia lìa chết chóc) nằm trong khoảng  <font color="#000000"><b>KIẾP</b></font> - <b>XẤU</b> <br>Khoảng <b>KIẾP</b> tượng trưng cho tai họa khách quan đến từ bên ngoài khiến hao tổn tiền của. Tránh ở cổng lớn, nhất là các cửa hàng, tiệm buôn càng nên lưu ý.</span>
-              </div>
-              <div class="tdbox_hd" bis_skin_checked="1">
-                  <span>Thước Lỗ Ban 38.8cm (Âm phần): Đồ nội thất (bàn thờ, tủ...)</span>
-              </div>
-              <div class="noidung_boxhd" bis_skin_checked="1">
-                  <span id="nd388-text">Độ dài 27.6 cm thuộc Cung <font color="#ff0000"><b>ĐÔNG KHOA</b></font> (Thi cử đỗ đạt, học hành tốt.) nằm trong khoảng  <font color="#ff0000"><b>HƯNG</b></font> - <font color="red"><b>TỐT</b></font></span>
-              </div>
-          </div>
-          <div class="box_huongdan" style="margin-top: 20px" bis_skin_checked="1">
-              <div class="tdbox_hd" bis_skin_checked="1">
-                  <span>Hướng dẫn xem Thước Lỗ Ban</span>
-              </div>
-              <div class="noidung_boxhd" bis_skin_checked="1">
-                  <p>Thước Lỗ ban là cây thước được Lỗ Ban, ông Tổ nghề mộc ở Trung Quốc thời Xuân Thu phát minh ra. Nhưng trên thực tế, trong ngành địa lý cổ phương Đông, ngoài thước Lỗ Ban (Lỗ Ban xích) còn có nhiều loại
-                      thước khác được áp dụng như thước Đinh Lan (Đinh Lan xích), thước Áp Bạch (Áp Bạch xích), bản thân thước
-                      Lỗ ban cũng bao gồm nhiều phiên bản khác nhau như các bản 52,2 cm; 42,9 cm…</p>
-                  <p>Do có nhiều bài viết, thông tin về thước Lỗ ban có các kích thước khác nhau. Ở đây chúng tôi chỉ giới
-                      thiệu 3 loại thước phổ biến nhất trên thị trường Việt Nam hiện nay là loại kích thước Lỗ Ban 52,2 cm;
-                      42,9 cm và 38,8 cm.</p>
-                  <p>- Đo kích thước rỗng (thông thủy): Thước Lỗ Ban 52,2 cm</p>
-                  <p>- Đo kích thước đặc: khối xây dựng (bếp, bệ, bậc…): Thước Lỗ Ban 42,9 cm</p>
-                  <p>- Đo Âm phần: mồ mả, đồ nội thất (bàn thờ, tủ thờ, khuôn khổ bài vị…): Thước Lỗ Ban 38,3 cm</p>
-              </div>
-          </div>
-          <div id="thuocloban" bis_skin_checked="1">
-              <p><strong>Bảng tra nhanh thước Lỗ Ban 52.2</strong></p>
-              <div id="loban" bis_skin_checked="1">
-                  <div class="loban-h" bis_skin_checked="1">
-                      <div class="khoan-h tot" bis_skin_checked="1">
-                          <div class="tenkhoan" bis_skin_checked="1"><span>Quý nhân</span></div>
-                          <div class="cung-h" bis_skin_checked="1">
-                              <div class="tencung" bis_skin_checked="1">Quyền lộc</div>
-                              <div class="tencung" bis_skin_checked="1">Trung tín</div>
-                              <div class="tencung" bis_skin_checked="1">Tác quan</div>
-                              <div class="tencung" bis_skin_checked="1">Phát đạt</div>
-                              <div class="tencung" bis_skin_checked="1">Thông minh</div>
+            <div class="entry-content" bis_skin_checked="1">
+                <div id="lobanOuter" style="height:470px; margin-top:30px;" bis_skin_checked="1">
+                      <div id="abc" bis_skin_checked="1">this.x=-2261 : out=8100</div>
+                      <div class="loban-touch-left" bis_skin_checked="1"></div>
+                      <div class="loban-touch-right" bis_skin_checked="1"></div>
+                      <div id="sodoLoban" bis_skin_checked="1">27.6 cm</div>
+                      <div id="container-sodo" style="left: 469.5px;" bis_skin_checked="1"><input type="text" value="202" name="sodo" id="sodo"> mm (nhập số)</div>
+                      <div id="thanhdo" style="left: 497.5px;" bis_skin_checked="1"></div>
+                      <p class="loban-note">Hãy kéo thước</p>
+                      <p class="loban-t loban-522"><strong>Thước Lỗ Ban 52.2cm:</strong> Khoảng thông thủy (cửa, cửa sổ...)</p>
+                      <p class="loban-t loban-429"><strong>Thước Lỗ Ban 42.9cm (Dương trạch):</strong> Khối xây dựng (bếp, bệ, bậc...)</p>
+                      <p class="loban-t loban-388"><strong>Thước Lỗ Ban 38.8cm (âm phần):</strong> Đồ nội thất (bàn thờ, tủ...)</p>
+                      <div id="loban-wrapper" style="overflow: hidden; left: 0px;" bis_skin_checked="1">
+                          <div id="loban-scroller" style="transition-property: transform; transform-origin: 0px 0px 0px; transition-timing-function: cubic-bezier(0.33, 0.66, 0.66, 1); transform: translate(-2261px) scale(1) translateZ(0px); transition-duration: 0ms;" bis_skin_checked="1">
+                              <div id="pullRight" style="display: none;" bis_skin_checked="1">
+                                  <span class="pullRightIcon"></span><span class="pullRightLabel">Kéo qua phải...</span>
+                              </div>
+                              <ul id="loban-thelist">
+                                  <li>
+                                      <img decoding="async" src="./thuoc522.png" nopin="nopin">
+                                      <img decoding="async" src="./thuoc429.png" nopin="nopin">
+                                      <img decoding="async" src="./thuoc388.png" nopin="nopin">
+                                  </li>
+                              </ul>
+                              <div id="pullLeft" style="display:none;" bis_skin_checked="1">
+                                  <span class="pullLeftIcon"></span><span class="pullLeftLabel">Kéo qua trái...</span>
+                              </div>
                           </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan-h xau" bis_skin_checked="1">
-                          <div class="tenkhoan" bis_skin_checked="1"><span>Hiểm họa</span></div>
-                          <div class="cung-h" bis_skin_checked="1">
-                              <div class="tencung" bis_skin_checked="1">Án thành</div>
-                              <div class="tencung" bis_skin_checked="1">Hỗn nhân</div>
-                              <div class="tencung" bis_skin_checked="1">Thất hiếu</div>
-                              <div class="tencung" bis_skin_checked="1">Tai họa</div>
-                              <div class="tencung" bis_skin_checked="1">Thường bệnh</div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan-h xau" bis_skin_checked="1">
-                          <div class="tenkhoan" bis_skin_checked="1"><span>Thiên tai</span></div>
-                          <div class="cung-h" bis_skin_checked="1">
-                              <div class="tencung" bis_skin_checked="1">Hoàn tử</div>
-                              <div class="tencung" bis_skin_checked="1">Quan tài</div>
-                              <div class="tencung" bis_skin_checked="1">Thân tàn</div>
-                              <div class="tencung" bis_skin_checked="1">Thất tài</div>
-                              <div class="tencung" bis_skin_checked="1">Hệ quả</div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan-h tot" bis_skin_checked="1">
-                          <div class="tenkhoan" bis_skin_checked="1"><span>Thiên tài</span></div>
-                          <div class="cung-h" bis_skin_checked="1">
-                              <div class="tencung" bis_skin_checked="1">Thi thơ</div>
-                              <div class="tencung" bis_skin_checked="1">Văn học</div>
-                              <div class="tencung" bis_skin_checked="1">Thanh quý</div>
-                              <div class="tencung" bis_skin_checked="1">Tác lộc</div>
-                              <div class="tencung" bis_skin_checked="1">Thiên lộc</div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan-h tot" bis_skin_checked="1">
-                          <div class="tenkhoan" bis_skin_checked="1"><span>Nhân lộc</span></div>
-                          <div class="cung-h" bis_skin_checked="1">
-                              <div class="tencung" bis_skin_checked="1">Trí tồn</div>
-                              <div class="tencung" bis_skin_checked="1">Phú quý</div>
-                              <div class="tencung" bis_skin_checked="1">Tiến bửu</div>
-                              <div class="tencung" bis_skin_checked="1">Thập thiện</div>
-                              <div class="tencung" bis_skin_checked="1">Văn chương</div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan-h xau" bis_skin_checked="1">
-                          <div class="tenkhoan" bis_skin_checked="1"><span>Cô độc</span></div>
-                          <div class="cung-h" bis_skin_checked="1">
-                              <div class="tencung" bis_skin_checked="1">Bạc nghịch</div>
-                              <div class="tencung" bis_skin_checked="1">Vô vọng</div>
-                              <div class="tencung" bis_skin_checked="1">Ly tán</div>
-                              <div class="tencung" bis_skin_checked="1">Tửu thục</div>
-                              <div class="tencung" bis_skin_checked="1">Dâm dục</div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan-h xau" bis_skin_checked="1">
-                          <div class="tenkhoan" bis_skin_checked="1"><span>Thiên tặc</span></div>
-                          <div class="cung-h" bis_skin_checked="1">
-                              <div class="tencung" bis_skin_checked="1">Phong bệnh</div>
-                              <div class="tencung" bis_skin_checked="1">Chiêu ôn</div>
-                              <div class="tencung" bis_skin_checked="1">Ôn tài</div>
-                              <div class="tencung" bis_skin_checked="1">Ngục tù</div>
-                              <div class="tencung" bis_skin_checked="1">Quang tài</div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan-h tot" bis_skin_checked="1">
-                          <div class="tenkhoan" bis_skin_checked="1"><span>Tể tướng</span></div>
-                          <div class="cung-h" bis_skin_checked="1">
-                              <div class="tencung" bis_skin_checked="1">Đại tài</div>
-                              <div class="tencung" bis_skin_checked="1">Thi thơ</div>
-                              <div class="tencung" bis_skin_checked="1">Hoạch tài</div>
-                              <div class="tencung" bis_skin_checked="1">Hiếu tử</div>
-                              <div class="tencung" bis_skin_checked="1">Quý nhân</div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="clear" bis_skin_checked="1"></div>
-                  </div>
-                  <div class="loban-d" bis_skin_checked="1">
-                      <div class="khoan" bis_skin_checked="1">
-                          <div class="cung" bis_skin_checked="1">
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">13,05</div>
-                                  <div class="sodo2" bis_skin_checked="1">533,05</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.053,05</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.573,05</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.093,05</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.613,05</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.133,05</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.653,05</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">26,10</div>
-                                  <div class="sodo2" bis_skin_checked="1">546,10</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.066,10</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.586,10</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.106,10</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.626,10</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.146,10</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.666,10</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">39,15</div>
-                                  <div class="sodo2" bis_skin_checked="1">559,15</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.079,15</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.599,15</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.119,15</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.639,15</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.159,15</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.679,15</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">52,20</div>
-                                  <div class="sodo2" bis_skin_checked="1">572,20</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.092,20</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.612,20</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.132,20</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.652,20</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.172,20</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.692,20</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">65,25</div>
-                                  <div class="sodo2" bis_skin_checked="1">585,25</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.105,25</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.625,25</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.145,25</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.665,25</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.185,25</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.705,25</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="clear" bis_skin_checked="1"></div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan" bis_skin_checked="1">
-                          <div class="cung" bis_skin_checked="1">
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">78,30</div>
-                                  <div class="sodo2" bis_skin_checked="1">598,30</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.118,30</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.638,30</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.158,30</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.678,30</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.198,30</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.718,30</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">91,35</div>
-                                  <div class="sodo2" bis_skin_checked="1">611,35</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.131,35</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.651,35</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.171,35</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.691,35</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.211,35</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.731,35</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">104,40</div>
-                                  <div class="sodo2" bis_skin_checked="1">624,40</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.144,40</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.664,40</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.184,40</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.704,40</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.224,40</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.744,40</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">117,45</div>
-                                  <div class="sodo2" bis_skin_checked="1">637,45</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.157,45</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.677,45</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.197,45</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.717,45</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.237,45</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.757,45</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">130,50</div>
-                                  <div class="sodo2" bis_skin_checked="1">650,50</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.170,50</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.690,50</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.210,50</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.730,50</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.250,50</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.770,50</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="clear" bis_skin_checked="1"></div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan" bis_skin_checked="1">
-                          <div class="cung" bis_skin_checked="1">
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">143,55</div>
-                                  <div class="sodo2" bis_skin_checked="1">663,55</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.183,55</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.703,55</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.223,55</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.743,55</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.263,55</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.783,55</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">156,60</div>
-                                  <div class="sodo2" bis_skin_checked="1">676,60</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.196,60</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.716,60</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.236,60</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.756,60</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.276,60</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.796,60</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">169,65</div>
-                                  <div class="sodo2" bis_skin_checked="1">689,65</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.209,65</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.729,65</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.249,65</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.769,65</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.289,65</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.809,65</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">182,70</div>
-                                  <div class="sodo2" bis_skin_checked="1">702,70</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.222,70</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.742,70</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.262,70</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.782,70</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.302,70</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.822,70</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">195,75</div>
-                                  <div class="sodo2" bis_skin_checked="1">715,75</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.235,75</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.755,75</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.275,75</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.795,75</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.315,75</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.835,75</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="clear" bis_skin_checked="1"></div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan" bis_skin_checked="1">
-                          <div class="cung" bis_skin_checked="1">
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">208,80</div>
-                                  <div class="sodo2" bis_skin_checked="1">728,80</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.248,80</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.768,80</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.288,80</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.808,80</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.328,80</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.848,80</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">221,85</div>
-                                  <div class="sodo2" bis_skin_checked="1">741,85</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.261,85</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.781,85</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.301,85</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.821,85</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.341,85</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.861,85</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">234,90</div>
-                                  <div class="sodo2" bis_skin_checked="1">754,90</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.274,90</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.794,90</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.314,90</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.834,90</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.354,90</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.874,90</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">247,95</div>
-                                  <div class="sodo2" bis_skin_checked="1">767,95</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.287,95</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.807,95</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.327,95</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.847,95</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.367,95</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.887,95</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">261,00</div>
-                                  <div class="sodo2" bis_skin_checked="1">781,00</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.301,00</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.821,00</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.341,00</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.861,00</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.381,00</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.901,00</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="clear" bis_skin_checked="1"></div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan" bis_skin_checked="1">
-                          <div class="cung" bis_skin_checked="1">
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">274,05</div>
-                                  <div class="sodo2" bis_skin_checked="1">794,05</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.314,05</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.834,05</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.354,05</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.874,05</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.394,05</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.914,05</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">287,10</div>
-                                  <div class="sodo2" bis_skin_checked="1">807,10</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.327,10</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.847,10</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.367,10</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.887,10</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.407,10</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.927,10</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">300,15</div>
-                                  <div class="sodo2" bis_skin_checked="1">820,15</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.340,15</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.860,15</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.380,15</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.900,15</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.420,15</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.940,15</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">313,20</div>
-                                  <div class="sodo2" bis_skin_checked="1">833,20</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.353,20</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.873,20</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.393,20</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.913,20</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.433,20</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.953,20</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">326,25</div>
-                                  <div class="sodo2" bis_skin_checked="1">846,25</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.366,25</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.886,25</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.406,25</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.926,25</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.446,25</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.966,25</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="clear" bis_skin_checked="1"></div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan" bis_skin_checked="1">
-                          <div class="cung" bis_skin_checked="1">
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">339,30</div>
-                                  <div class="sodo2" bis_skin_checked="1">859,30</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.379,30</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.899,30</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.419,30</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.939,30</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.459,30</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.979,30</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">352,35</div>
-                                  <div class="sodo2" bis_skin_checked="1">872,35</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.392,35</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.912,35</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.432,35</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.952,35</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.472,35</div>
-                                  <div class="sodo8" bis_skin_checked="1">3.992,35</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">365,40</div>
-                                  <div class="sodo2" bis_skin_checked="1">885,40</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.405,40</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.925,40</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.445,40</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.965,40</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.485,40</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.005,40</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">378,45</div>
-                                  <div class="sodo2" bis_skin_checked="1">898,45</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.418,45</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.938,45</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.458,45</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.978,45</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.498,45</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.018,45</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">391,50</div>
-                                  <div class="sodo2" bis_skin_checked="1">911,50</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.431,50</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.951,50</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.471,50</div>
-                                  <div class="sodo6" bis_skin_checked="1">2.991,50</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.511,50</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.031,50</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="clear" bis_skin_checked="1"></div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan" bis_skin_checked="1">
-                          <div class="cung" bis_skin_checked="1">
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">404,55</div>
-                                  <div class="sodo2" bis_skin_checked="1">924,55</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.444,55</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.964,55</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.484,55</div>
-                                  <div class="sodo6" bis_skin_checked="1">3.004,55</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.524,55</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.044,55</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">417,60</div>
-                                  <div class="sodo2" bis_skin_checked="1">937,60</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.457,60</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.977,60</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.497,60</div>
-                                  <div class="sodo6" bis_skin_checked="1">3.017,60</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.537,60</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.057,60</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">430,65</div>
-                                  <div class="sodo2" bis_skin_checked="1">950,65</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.470,65</div>
-                                  <div class="sodo4" bis_skin_checked="1">1.990,65</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.510,65</div>
-                                  <div class="sodo6" bis_skin_checked="1">3.030,65</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.550,65</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.070,65</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">443,70</div>
-                                  <div class="sodo2" bis_skin_checked="1">963,70</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.483,70</div>
-                                  <div class="sodo4" bis_skin_checked="1">2.003,70</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.523,70</div>
-                                  <div class="sodo6" bis_skin_checked="1">3.043,70</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.563,70</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.083,70</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo xau" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">456,75</div>
-                                  <div class="sodo2" bis_skin_checked="1">976,75</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.496,75</div>
-                                  <div class="sodo4" bis_skin_checked="1">2.016,75</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.536,75</div>
-                                  <div class="sodo6" bis_skin_checked="1">3.056,75</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.576,75</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.096,75</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="clear" bis_skin_checked="1"></div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
-                      <div class="khoan" bis_skin_checked="1">
-                          <div class="cung" bis_skin_checked="1">
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">469,80</div>
-                                  <div class="sodo2" bis_skin_checked="1">989,80</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.509,80</div>
-                                  <div class="sodo4" bis_skin_checked="1">2.029,80</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.549,80</div>
-                                  <div class="sodo6" bis_skin_checked="1">3.069,80</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.589,80</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.109,80</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">482,85</div>
-                                  <div class="sodo2" bis_skin_checked="1">1.002,85</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.522,85</div>
-                                  <div class="sodo4" bis_skin_checked="1">2.042,85</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.562,85</div>
-                                  <div class="sodo6" bis_skin_checked="1">3.082,85</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.602,85</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.122,85</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">495,90</div>
-                                  <div class="sodo2" bis_skin_checked="1">1.015,90</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.535,90</div>
-                                  <div class="sodo4" bis_skin_checked="1">2.055,90</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.575,90</div>
-                                  <div class="sodo6" bis_skin_checked="1">3.095,90</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.615,90</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.135,90</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">508,95</div>
-                                  <div class="sodo2" bis_skin_checked="1">1.028,95</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.548,95</div>
-                                  <div class="sodo4" bis_skin_checked="1">2.068,95</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.588,95</div>
-                                  <div class="sodo6" bis_skin_checked="1">3.108,95</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.628,95</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.148,95</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="sodo tot" bis_skin_checked="1">
-                                  <div class="sodo1" bis_skin_checked="1">522,00</div>
-                                  <div class="sodo2" bis_skin_checked="1">1.042,00</div>
-                                  <div class="sodo3" bis_skin_checked="1">1.562,00</div>
-                                  <div class="sodo4" bis_skin_checked="1">2.082,00</div>
-                                  <div class="sodo5" bis_skin_checked="1">2.602,00</div>
-                                  <div class="sodo6" bis_skin_checked="1">3.122,00</div>
-                                  <div class="sodo7" bis_skin_checked="1">3.642,00</div>
-                                  <div class="sodo8" bis_skin_checked="1">4.162,00</div>
-                                  <div class="clear" bis_skin_checked="1"></div>
-                              </div>
-                              <div class="clear" bis_skin_checked="1"></div>
-                          </div>
-                          <div class="clear" bis_skin_checked="1"></div>
-                      </div>
+                      <div style="position: absolute; z-index: 100; height: 7px; bottom: 1px; left: 2px; right: 2px; pointer-events: none; transition-property: opacity; overflow: hidden; opacity: 1;" bis_skin_checked="1"><div style="position: absolute; z-index: 100; background: rgba(0, 0, 0, 0.5) padding-box; border: 1px solid rgba(255, 255, 255, 0.9); box-sizing: border-box; height: 100%; border-radius: 3px; pointer-events: none; transition-property: transform; transform: translate(222.003px) translateZ(0px); transition-timing-function: cubic-bezier(0.33, 0.66, 0.66, 1); width: 97px; transition-duration: 0ms;" bis_skin_checked="1"></div></div></div>
                       <div class="clear" bis_skin_checked="1"></div>
                   </div>
                   <div class="clear" bis_skin_checked="1"></div>
-              </div>
-          </div>
-          
-        </div><!-- .entry-content -->
-  <footer class="entry-meta">
-        </footer><!-- .entry-meta -->
-</article><!-- #post -->
+                  <div class="box_huongdan" style="margin-top: 20px" bis_skin_checked="1">
+                      <div class="tdbox_hd" bis_skin_checked="1">
+                          <span>Thước Lỗ Ban 52.2cm: Khoảng không thông thủy (cửa, cửa sổ...)</span>
+                      </div>
+                      <div class="noidung_boxhd" bis_skin_checked="1">
+                          <span id="nd522-text">Độ dài 27.6 cm thuộc Cung <font color="#ff0000"><b>PHÚ QUÝ</b></font> nằm trong khoảng  <font color="#ff0000"><b>NHÂN LỘC</b></font> - <font color="red"><b>TỐT</b></font>: (Tại khoảng này chủ nhà luôn gặp sung túc, phúc lộc, nghề nghiệp luôn phát triển, năng tài đắc lợi, con cái thông minh, hiếu thảo).</span>
+                      </div>
+                      <div class="tdbox_hd" bis_skin_checked="1">
+                          <span>Thước Lỗ Ban 42.9cm (Dương trạch): Khối xây dựng (bếp, bệ, bậc...)</span>
+                      </div>
+                      <div class="noidung_boxhd" bis_skin_checked="1">
+                          <span id="nd429-text">Độ dài 27.6 cm thuộc Cung <font color="#000000"><b>TỬ BIỆT</b></font> (Chia lìa chết chóc) nằm trong khoảng  <font color="#000000"><b>KIẾP</b></font> - <b>XẤU</b> <br>Khoảng <b>KIẾP</b> tượng trưng cho tai họa khách quan đến từ bên ngoài khiến hao tổn tiền của. Tránh ở cổng lớn, nhất là các cửa hàng, tiệm buôn càng nên lưu ý.</span>
+                      </div>
+                      <div class="tdbox_hd" bis_skin_checked="1">
+                          <span>Thước Lỗ Ban 38.8cm (Âm phần): Đồ nội thất (bàn thờ, tủ...)</span>
+                      </div>
+                      <div class="noidung_boxhd" bis_skin_checked="1">
+                          <span id="nd388-text">Độ dài 27.6 cm thuộc Cung <font color="#ff0000"><b>ĐÔNG KHOA</b></font> (Thi cử đỗ đạt, học hành tốt.) nằm trong khoảng  <font color="#ff0000"><b>HƯNG</b></font> - <font color="red"><b>TỐT</b></font></span>
+                      </div>
+                  </div>
+                  <div class="box_huongdan" style="margin-top: 20px" bis_skin_checked="1">
+                      <div class="tdbox_hd" bis_skin_checked="1">
+                          <span>Hướng dẫn xem Thước Lỗ Ban</span>
+                      </div>
+                      <div class="noidung_boxhd" bis_skin_checked="1">
+                          <p>Thước Lỗ ban là cây thước được Lỗ Ban, ông Tổ nghề mộc ở Trung Quốc thời Xuân Thu phát minh ra. Nhưng trên thực tế, trong ngành địa lý cổ phương Đông, ngoài thước Lỗ Ban (Lỗ Ban xích) còn có nhiều loại
+                              thước khác được áp dụng như thước Đinh Lan (Đinh Lan xích), thước Áp Bạch (Áp Bạch xích), bản thân thước
+                              Lỗ ban cũng bao gồm nhiều phiên bản khác nhau như các bản 52,2 cm; 42,9 cm…</p>
+                          <p>Do có nhiều bài viết, thông tin về thước Lỗ ban có các kích thước khác nhau. Ở đây chúng tôi chỉ giới
+                              thiệu 3 loại thước phổ biến nhất trên thị trường Việt Nam hiện nay là loại kích thước Lỗ Ban 52,2 cm;
+                              42,9 cm và 38,8 cm.</p>
+                          <p>- Đo kích thước rỗng (thông thủy): Thước Lỗ Ban 52,2 cm</p>
+                          <p>- Đo kích thước đặc: khối xây dựng (bếp, bệ, bậc…): Thước Lỗ Ban 42,9 cm</p>
+                          <p>- Đo Âm phần: mồ mả, đồ nội thất (bàn thờ, tủ thờ, khuôn khổ bài vị…): Thước Lỗ Ban 38,3 cm</p>
+                      </div>
+                  </div>
+                  <div id="thuocloban" bis_skin_checked="1">
+                      <p><strong>Bảng tra nhanh thước Lỗ Ban 52.2</strong></p>
+                      <div id="loban" bis_skin_checked="1">
+                          <div class="loban-h" bis_skin_checked="1">
+                              <div class="khoan-h tot" bis_skin_checked="1">
+                                  <div class="tenkhoan" bis_skin_checked="1"><span>Quý nhân</span></div>
+                                  <div class="cung-h" bis_skin_checked="1">
+                                      <div class="tencung" bis_skin_checked="1">Quyền lộc</div>
+                                      <div class="tencung" bis_skin_checked="1">Trung tín</div>
+                                      <div class="tencung" bis_skin_checked="1">Tác quan</div>
+                                      <div class="tencung" bis_skin_checked="1">Phát đạt</div>
+                                      <div class="tencung" bis_skin_checked="1">Thông minh</div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan-h xau" bis_skin_checked="1">
+                                  <div class="tenkhoan" bis_skin_checked="1"><span>Hiểm họa</span></div>
+                                  <div class="cung-h" bis_skin_checked="1">
+                                      <div class="tencung" bis_skin_checked="1">Án thành</div>
+                                      <div class="tencung" bis_skin_checked="1">Hỗn nhân</div>
+                                      <div class="tencung" bis_skin_checked="1">Thất hiếu</div>
+                                      <div class="tencung" bis_skin_checked="1">Tai họa</div>
+                                      <div class="tencung" bis_skin_checked="1">Thường bệnh</div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan-h xau" bis_skin_checked="1">
+                                  <div class="tenkhoan" bis_skin_checked="1"><span>Thiên tai</span></div>
+                                  <div class="cung-h" bis_skin_checked="1">
+                                      <div class="tencung" bis_skin_checked="1">Hoàn tử</div>
+                                      <div class="tencung" bis_skin_checked="1">Quan tài</div>
+                                      <div class="tencung" bis_skin_checked="1">Thân tàn</div>
+                                      <div class="tencung" bis_skin_checked="1">Thất tài</div>
+                                      <div class="tencung" bis_skin_checked="1">Hệ quả</div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan-h tot" bis_skin_checked="1">
+                                  <div class="tenkhoan" bis_skin_checked="1"><span>Thiên tài</span></div>
+                                  <div class="cung-h" bis_skin_checked="1">
+                                      <div class="tencung" bis_skin_checked="1">Thi thơ</div>
+                                      <div class="tencung" bis_skin_checked="1">Văn học</div>
+                                      <div class="tencung" bis_skin_checked="1">Thanh quý</div>
+                                      <div class="tencung" bis_skin_checked="1">Tác lộc</div>
+                                      <div class="tencung" bis_skin_checked="1">Thiên lộc</div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan-h tot" bis_skin_checked="1">
+                                  <div class="tenkhoan" bis_skin_checked="1"><span>Nhân lộc</span></div>
+                                  <div class="cung-h" bis_skin_checked="1">
+                                      <div class="tencung" bis_skin_checked="1">Trí tồn</div>
+                                      <div class="tencung" bis_skin_checked="1">Phú quý</div>
+                                      <div class="tencung" bis_skin_checked="1">Tiến bửu</div>
+                                      <div class="tencung" bis_skin_checked="1">Thập thiện</div>
+                                      <div class="tencung" bis_skin_checked="1">Văn chương</div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan-h xau" bis_skin_checked="1">
+                                  <div class="tenkhoan" bis_skin_checked="1"><span>Cô độc</span></div>
+                                  <div class="cung-h" bis_skin_checked="1">
+                                      <div class="tencung" bis_skin_checked="1">Bạc nghịch</div>
+                                      <div class="tencung" bis_skin_checked="1">Vô vọng</div>
+                                      <div class="tencung" bis_skin_checked="1">Ly tán</div>
+                                      <div class="tencung" bis_skin_checked="1">Tửu thục</div>
+                                      <div class="tencung" bis_skin_checked="1">Dâm dục</div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan-h xau" bis_skin_checked="1">
+                                  <div class="tenkhoan" bis_skin_checked="1"><span>Thiên tặc</span></div>
+                                  <div class="cung-h" bis_skin_checked="1">
+                                      <div class="tencung" bis_skin_checked="1">Phong bệnh</div>
+                                      <div class="tencung" bis_skin_checked="1">Chiêu ôn</div>
+                                      <div class="tencung" bis_skin_checked="1">Ôn tài</div>
+                                      <div class="tencung" bis_skin_checked="1">Ngục tù</div>
+                                      <div class="tencung" bis_skin_checked="1">Quang tài</div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan-h tot" bis_skin_checked="1">
+                                  <div class="tenkhoan" bis_skin_checked="1"><span>Tể tướng</span></div>
+                                  <div class="cung-h" bis_skin_checked="1">
+                                      <div class="tencung" bis_skin_checked="1">Đại tài</div>
+                                      <div class="tencung" bis_skin_checked="1">Thi thơ</div>
+                                      <div class="tencung" bis_skin_checked="1">Hoạch tài</div>
+                                      <div class="tencung" bis_skin_checked="1">Hiếu tử</div>
+                                      <div class="tencung" bis_skin_checked="1">Quý nhân</div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="clear" bis_skin_checked="1"></div>
+                          </div>
+                          <div class="loban-d" bis_skin_checked="1">
+                              <div class="khoan" bis_skin_checked="1">
+                                  <div class="cung" bis_skin_checked="1">
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">13,05</div>
+                                          <div class="sodo2" bis_skin_checked="1">533,05</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.053,05</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.573,05</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.093,05</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.613,05</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.133,05</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.653,05</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">26,10</div>
+                                          <div class="sodo2" bis_skin_checked="1">546,10</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.066,10</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.586,10</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.106,10</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.626,10</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.146,10</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.666,10</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">39,15</div>
+                                          <div class="sodo2" bis_skin_checked="1">559,15</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.079,15</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.599,15</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.119,15</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.639,15</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.159,15</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.679,15</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">52,20</div>
+                                          <div class="sodo2" bis_skin_checked="1">572,20</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.092,20</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.612,20</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.132,20</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.652,20</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.172,20</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.692,20</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">65,25</div>
+                                          <div class="sodo2" bis_skin_checked="1">585,25</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.105,25</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.625,25</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.145,25</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.665,25</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.185,25</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.705,25</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="clear" bis_skin_checked="1"></div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan" bis_skin_checked="1">
+                                  <div class="cung" bis_skin_checked="1">
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">78,30</div>
+                                          <div class="sodo2" bis_skin_checked="1">598,30</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.118,30</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.638,30</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.158,30</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.678,30</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.198,30</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.718,30</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">91,35</div>
+                                          <div class="sodo2" bis_skin_checked="1">611,35</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.131,35</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.651,35</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.171,35</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.691,35</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.211,35</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.731,35</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">104,40</div>
+                                          <div class="sodo2" bis_skin_checked="1">624,40</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.144,40</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.664,40</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.184,40</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.704,40</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.224,40</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.744,40</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">117,45</div>
+                                          <div class="sodo2" bis_skin_checked="1">637,45</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.157,45</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.677,45</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.197,45</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.717,45</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.237,45</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.757,45</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">130,50</div>
+                                          <div class="sodo2" bis_skin_checked="1">650,50</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.170,50</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.690,50</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.210,50</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.730,50</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.250,50</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.770,50</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="clear" bis_skin_checked="1"></div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan" bis_skin_checked="1">
+                                  <div class="cung" bis_skin_checked="1">
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">143,55</div>
+                                          <div class="sodo2" bis_skin_checked="1">663,55</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.183,55</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.703,55</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.223,55</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.743,55</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.263,55</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.783,55</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">156,60</div>
+                                          <div class="sodo2" bis_skin_checked="1">676,60</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.196,60</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.716,60</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.236,60</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.756,60</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.276,60</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.796,60</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">169,65</div>
+                                          <div class="sodo2" bis_skin_checked="1">689,65</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.209,65</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.729,65</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.249,65</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.769,65</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.289,65</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.809,65</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">182,70</div>
+                                          <div class="sodo2" bis_skin_checked="1">702,70</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.222,70</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.742,70</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.262,70</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.782,70</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.302,70</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.822,70</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">195,75</div>
+                                          <div class="sodo2" bis_skin_checked="1">715,75</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.235,75</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.755,75</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.275,75</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.795,75</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.315,75</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.835,75</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="clear" bis_skin_checked="1"></div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan" bis_skin_checked="1">
+                                  <div class="cung" bis_skin_checked="1">
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">208,80</div>
+                                          <div class="sodo2" bis_skin_checked="1">728,80</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.248,80</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.768,80</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.288,80</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.808,80</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.328,80</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.848,80</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">221,85</div>
+                                          <div class="sodo2" bis_skin_checked="1">741,85</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.261,85</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.781,85</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.301,85</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.821,85</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.341,85</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.861,85</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">234,90</div>
+                                          <div class="sodo2" bis_skin_checked="1">754,90</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.274,90</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.794,90</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.314,90</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.834,90</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.354,90</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.874,90</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">247,95</div>
+                                          <div class="sodo2" bis_skin_checked="1">767,95</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.287,95</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.807,95</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.327,95</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.847,95</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.367,95</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.887,95</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">261,00</div>
+                                          <div class="sodo2" bis_skin_checked="1">781,00</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.301,00</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.821,00</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.341,00</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.861,00</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.381,00</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.901,00</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="clear" bis_skin_checked="1"></div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan" bis_skin_checked="1">
+                                  <div class="cung" bis_skin_checked="1">
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">274,05</div>
+                                          <div class="sodo2" bis_skin_checked="1">794,05</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.314,05</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.834,05</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.354,05</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.874,05</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.394,05</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.914,05</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">287,10</div>
+                                          <div class="sodo2" bis_skin_checked="1">807,10</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.327,10</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.847,10</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.367,10</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.887,10</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.407,10</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.927,10</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">300,15</div>
+                                          <div class="sodo2" bis_skin_checked="1">820,15</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.340,15</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.860,15</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.380,15</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.900,15</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.420,15</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.940,15</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">313,20</div>
+                                          <div class="sodo2" bis_skin_checked="1">833,20</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.353,20</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.873,20</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.393,20</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.913,20</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.433,20</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.953,20</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">326,25</div>
+                                          <div class="sodo2" bis_skin_checked="1">846,25</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.366,25</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.886,25</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.406,25</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.926,25</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.446,25</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.966,25</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="clear" bis_skin_checked="1"></div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan" bis_skin_checked="1">
+                                  <div class="cung" bis_skin_checked="1">
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">339,30</div>
+                                          <div class="sodo2" bis_skin_checked="1">859,30</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.379,30</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.899,30</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.419,30</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.939,30</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.459,30</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.979,30</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">352,35</div>
+                                          <div class="sodo2" bis_skin_checked="1">872,35</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.392,35</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.912,35</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.432,35</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.952,35</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.472,35</div>
+                                          <div class="sodo8" bis_skin_checked="1">3.992,35</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">365,40</div>
+                                          <div class="sodo2" bis_skin_checked="1">885,40</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.405,40</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.925,40</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.445,40</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.965,40</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.485,40</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.005,40</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">378,45</div>
+                                          <div class="sodo2" bis_skin_checked="1">898,45</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.418,45</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.938,45</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.458,45</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.978,45</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.498,45</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.018,45</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">391,50</div>
+                                          <div class="sodo2" bis_skin_checked="1">911,50</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.431,50</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.951,50</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.471,50</div>
+                                          <div class="sodo6" bis_skin_checked="1">2.991,50</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.511,50</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.031,50</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="clear" bis_skin_checked="1"></div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan" bis_skin_checked="1">
+                                  <div class="cung" bis_skin_checked="1">
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">404,55</div>
+                                          <div class="sodo2" bis_skin_checked="1">924,55</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.444,55</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.964,55</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.484,55</div>
+                                          <div class="sodo6" bis_skin_checked="1">3.004,55</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.524,55</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.044,55</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">417,60</div>
+                                          <div class="sodo2" bis_skin_checked="1">937,60</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.457,60</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.977,60</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.497,60</div>
+                                          <div class="sodo6" bis_skin_checked="1">3.017,60</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.537,60</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.057,60</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">430,65</div>
+                                          <div class="sodo2" bis_skin_checked="1">950,65</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.470,65</div>
+                                          <div class="sodo4" bis_skin_checked="1">1.990,65</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.510,65</div>
+                                          <div class="sodo6" bis_skin_checked="1">3.030,65</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.550,65</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.070,65</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">443,70</div>
+                                          <div class="sodo2" bis_skin_checked="1">963,70</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.483,70</div>
+                                          <div class="sodo4" bis_skin_checked="1">2.003,70</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.523,70</div>
+                                          <div class="sodo6" bis_skin_checked="1">3.043,70</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.563,70</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.083,70</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo xau" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">456,75</div>
+                                          <div class="sodo2" bis_skin_checked="1">976,75</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.496,75</div>
+                                          <div class="sodo4" bis_skin_checked="1">2.016,75</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.536,75</div>
+                                          <div class="sodo6" bis_skin_checked="1">3.056,75</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.576,75</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.096,75</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="clear" bis_skin_checked="1"></div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="khoan" bis_skin_checked="1">
+                                  <div class="cung" bis_skin_checked="1">
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">469,80</div>
+                                          <div class="sodo2" bis_skin_checked="1">989,80</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.509,80</div>
+                                          <div class="sodo4" bis_skin_checked="1">2.029,80</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.549,80</div>
+                                          <div class="sodo6" bis_skin_checked="1">3.069,80</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.589,80</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.109,80</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">482,85</div>
+                                          <div class="sodo2" bis_skin_checked="1">1.002,85</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.522,85</div>
+                                          <div class="sodo4" bis_skin_checked="1">2.042,85</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.562,85</div>
+                                          <div class="sodo6" bis_skin_checked="1">3.082,85</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.602,85</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.122,85</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">495,90</div>
+                                          <div class="sodo2" bis_skin_checked="1">1.015,90</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.535,90</div>
+                                          <div class="sodo4" bis_skin_checked="1">2.055,90</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.575,90</div>
+                                          <div class="sodo6" bis_skin_checked="1">3.095,90</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.615,90</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.135,90</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">508,95</div>
+                                          <div class="sodo2" bis_skin_checked="1">1.028,95</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.548,95</div>
+                                          <div class="sodo4" bis_skin_checked="1">2.068,95</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.588,95</div>
+                                          <div class="sodo6" bis_skin_checked="1">3.108,95</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.628,95</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.148,95</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="sodo tot" bis_skin_checked="1">
+                                          <div class="sodo1" bis_skin_checked="1">522,00</div>
+                                          <div class="sodo2" bis_skin_checked="1">1.042,00</div>
+                                          <div class="sodo3" bis_skin_checked="1">1.562,00</div>
+                                          <div class="sodo4" bis_skin_checked="1">2.082,00</div>
+                                          <div class="sodo5" bis_skin_checked="1">2.602,00</div>
+                                          <div class="sodo6" bis_skin_checked="1">3.122,00</div>
+                                          <div class="sodo7" bis_skin_checked="1">3.642,00</div>
+                                          <div class="sodo8" bis_skin_checked="1">4.162,00</div>
+                                          <div class="clear" bis_skin_checked="1"></div>
+                                      </div>
+                                      <div class="clear" bis_skin_checked="1"></div>
+                                  </div>
+                                  <div class="clear" bis_skin_checked="1"></div>
+                              </div>
+                              <div class="clear" bis_skin_checked="1"></div>
+                          </div>
+                          <div class="clear" bis_skin_checked="1"></div>
+                      </div>
+                  </div>
+
+                </div><!-- .entry-content -->
+          <footer class="entry-meta">
+                </footer><!-- .entry-meta -->
+        </article><!-- #post -->
       
 <div id="comments" class="comments-area" bis_skin_checked="1">
 
@@ -798,140 +760,35 @@ img.wp-smiley, img.emoji {
 <!-- #colophon -->
 </div><!-- #page -->
 
-<link rel="stylesheet" id="devvn-thuocloban-style-css" href="https://demoplugins.webmau68.com/wp-content/plugins/devvn-thuoc-lo-ban/css/thuocloban.css?ver=1.0.2" type="text/css" media="all">
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18" id="wp-hooks-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
-<script type="text/javascript" id="wp-i18n-js-after">
-/* <![CDATA[ */
-wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.9.8" id="swv-js"></script>
-<script type="text/javascript" id="contact-form-7-js-extra">
-/* <![CDATA[ */
-var wpcf7 = {"api":{"root":"https:\/\/demoplugins.webmau68.com\/wp-json\/","namespace":"contact-form-7\/v1"}};
-/* ]]> */
-</script>
-<script type="text/javascript" id="contact-form-7-js-translations">
-/* <![CDATA[ */
-( function( domain, translations ) {
-var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-localeData[""].domain = domain;
-wp.i18n.setLocaleData( localeData, domain );
-} )( "contact-form-7", {"translation-revision-date":"2024-08-11 13:44:17+0000","generator":"GlotPress\/4.0.1","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=1; plural=0;","lang":"vi_VN"},"This contact form is placed in the wrong place.":["Bi\u1ec3u m\u1eabu li\u00ean h\u1ec7 n\u00e0y \u0111\u01b0\u1ee3c \u0111\u1eb7t sai v\u1ecb tr\u00ed."],"Error:":["L\u1ed7i:"]}},"comment":{"reference":"includes\/js\/index.js"}} );
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.9.8" id="contact-form-7-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.13.3" id="jquery-ui-datepicker-js"></script>
-<script type="text/javascript" id="jquery-ui-datepicker-js-after">
-/* <![CDATA[ */
-jQuery(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"\u0110\u00f3ng","currentText":"H\u00f4m nay","monthNames":["Th\u00e1ng M\u1ed9t","Th\u00e1ng Hai","Th\u00e1ng Ba","Th\u00e1ng T\u01b0","Th\u00e1ng N\u0103m","Th\u00e1ng S\u00e1u","Th\u00e1ng B\u1ea3y","Th\u00e1ng T\u00e1m","Th\u00e1ng Ch\u00edn","Th\u00e1ng M\u01b0\u1eddi","Th\u00e1ng M\u01b0\u1eddi M\u1ed9t","Th\u00e1ng M\u01b0\u1eddi Hai"],"monthNamesShort":["Th1","Th2","Th3","Th4","Th5","Th6","Th7","Th8","Th9","Th10","Th11","Th12"],"nextText":"Ti\u1ebfp theo","prevText":"Quay v\u1ec1","dayNames":["Ch\u1ee7 Nh\u1eadt","Th\u1ee9 Hai","Th\u1ee9 Ba","Th\u1ee9 T\u01b0","Th\u1ee9 N\u0103m","Th\u1ee9 S\u00e1u","Th\u1ee9 B\u1ea3y"],"dayNamesShort":["CN","T2","T3","T4","T5","T6","T7"],"dayNamesMin":["C","H","B","T","N","S","B"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/cptdev-menu-order/assets/js/cptdev-localstore-jquery.js?ver=1.0.4" id="cptdev-localstore-script-js"></script>
-<script type="text/javascript" id="cptdev-localstore-ajax-js-extra">
-/* <![CDATA[ */
-var cptdev_array = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin-ajax.php","siteurl":"https:\/\/demoplugins.webmau68.com"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/cptdev-menu-order/assets/js/cptdev_ajax_script.js?ver=1.0.4" id="cptdev-localstore-ajax-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-360-images-view/frontend/js/jquery.reel.js?ver=1.3.0" id="jquery-reel-js"></script>
-<script type="text/javascript" id="devvn-ireel-jquery-js-extra">
-/* <![CDATA[ */
-var ireel_array = {"image_url":"https:\/\/demoplugins.webmau68.com\/wp-content\/plugins\/devvn-360-images-view\/frontend\/images\/"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-360-images-view/frontend/js/jquery.devvn_ireel.js?ver=2.0" id="devvn-ireel-jquery-js"></script>
-<script type="text/javascript" id="devvn-address-cf7-js-extra">
-/* <![CDATA[ */
-var devvn_address_cf7 = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin-ajax.php","siteurl":"https:\/\/demoplugins.webmau68.com","json_address_enable":"1","json_address":"https:\/\/demoplugins.webmau68.com\/wp-content\/plugins\/devvn-address-cf7\/address\/devvn-vn-address.json","city_label":"- Ch\u1ecdn T\u1ec9nh\/Th\u00e0nh ph\u1ed1 -","district_label":"- Ch\u1ecdn Qu\u1eadn\/Huy\u1ec7n -","wards_label":"- Ch\u1ecdn X\u00e3\/Ph\u01b0\u1eddng\/Th\u1ecb tr\u1ea5n -"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-address-cf7/js/devvn-address-cf7.js?ver=1.0.4" id="devvn-address-cf7-js"></script>
-<script type="text/javascript" id="devvn-tooth-script-js-extra">
-/* <![CDATA[ */
-var devvn_tooth_args = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin-ajax.php","siteurl":"https:\/\/demoplugins.webmau68.com"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-baohanh-rang/js/tooth-js.js?ver=1.0.0" id="devvn-tooth-script-js"></script>
-<script type="text/javascript" id="devvn-xetai-script-js-extra">
-/* <![CDATA[ */
-var devvn_bh_xetai_args = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin-ajax.php","siteurl":"https:\/\/demoplugins.webmau68.com"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-baohanh-xetai/js/xetai-js.js?ver=1.0.0" id="devvn-xetai-script-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-calc-kwp/js/magnific-popup/magnific-popup.js?ver=1.0.1" id="magnific-popup-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-calc-kwp/js/wNumb.js?ver=1.0.1" id="wNumb-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-calc-kwp/js/cleave.min.js?ver=1.0.1" id="cleave-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-calc-kwp/js/nouislider/nouislider.min.js?ver=1.0.1" id="nouislider-js"></script>
-<script type="text/javascript" id="devvn-solar-script-js-extra">
-/* <![CDATA[ */
-var devvn_solar_array = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin-ajax.php","siteurl":"https:\/\/demoplugins.webmau68.com","pin_wp":"330","pin_m2":"2","pin_range":[{"pin":"8","kwp":2.64},{"pin":10,"kwp":3.3},{"pin":12,"kwp":3.96},{"pin":14,"kwp":4.62},{"pin":16,"kwp":5.28},{"pin":18,"kwp":5.94},{"pin":20,"kwp":6.6},{"pin":22,"kwp":7.26},{"pin":24,"kwp":7.92},{"pin":26,"kwp":8.58},{"pin":28,"kwp":9.24},{"pin":30,"kwp":9.9},{"pin":32,"kwp":10.56},{"pin":34,"kwp":11.22},{"pin":36,"kwp":11.88},{"pin":38,"kwp":12.54}],"price_kwh":"3000","hours_sun":"4"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-calc-kwp/js/devvn-calc-kwp.js?ver=1.0.1" id="devvn-solar-script-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-congcudutoan/js/jquery.table2excel.min.js?ver=1.0.0" id="table2excel-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-includes/js/underscore.min.js?ver=1.13.4" id="underscore-js"></script>
-<script type="text/javascript" id="wp-util-js-extra">
-/* <![CDATA[ */
-var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-includes/js/wp-util.min.js?ver=120e7cadff530dabfc2c87d700d085d6" id="wp-util-js"></script>
-<script type="text/javascript" id="devvn-dutoan-script-js-extra">
-/* <![CDATA[ */
-var devvn_dutoan_array = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin-ajax.php","siteurl":"https:\/\/demoplugins.webmau68.com"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-congcudutoan/js/devvn-congcudutoan.js?ver=1.0.0" id="devvn-dutoan-script-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-image-hotspot/frontend/js/jquery.powertip.min.js?ver=1.2.0" id="powertip-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-image-hotspot/frontend/js/maps_points.js?ver=1.2.5" id="maps-points-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-lai-vay-thang/js/jquery.bpopup.min.js?ver=1.0.0" id="bpopup-js"></script>
-<script type="text/javascript" id="devvn-laivay-script-js-extra">
-/* <![CDATA[ */
-var devvn_laivay_array = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin-ajax.php","siteurl":"https:\/\/demoplugins.webmau68.com"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-lai-vay-thang/js/devvn-laivay.js?ver=1.0.0" id="devvn-laivay-script-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-manual-viewer/frontend/devvn-manual-viewer.js?ver=1.0.0" id="devvn-manual-viewer-script-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/themes/twentytwelve/js/navigation.js?ver=20140711" id="twentytwelve-navigation-js"></script>
-<script type="text/javascript" id="cpt_jquery-js-extra">
-/* <![CDATA[ */
-var cpt_baogia = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin-ajax.php","siteurl":"https:\/\/demoplugins.webmau68.com"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/cpt-bao-gia/js/cpt_main.js?ver=1.0.1" id="cpt_jquery-js"></script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-thuoc-lo-ban/js/iscroll.js?ver=1.0.2" id="devvn-iscroll-script-js"></script>
-<script type="text/javascript" id="devvn-thuocloban-script-js-extra">
-/* <![CDATA[ */
-var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin-ajax.php","siteurl":"https:\/\/demoplugins.webmau68.com","thuoc":"https:\/\/demoplugins.webmau68.com\/wp-content\/plugins\/devvn-thuoc-lo-ban\/includes\/"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://demoplugins.webmau68.com/wp-content/plugins/devvn-thuoc-lo-ban/js/thuocloban.js?ver=1.0.2" id="devvn-thuocloban-script-js"></script>
+<link rel="stylesheet" id="qt-thuocloban-style-css" href="./thuocloban.css?ver=1.0.2" type="text/css" media="all">
+<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js" integrity="sha256-sw0iNNXmOJbQhYFuC9OF2kOlD5KQKe1y5lfBn4C9Sjg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.7/underscore-min.js" integrity="sha512-dvWGkLATSdw5qWb2qozZBRKJ80Omy2YN/aF3wTUVC5+D1eqbA+TjWpPpoj8vorK5xGLMa2ZqIeWCpDZP/+pQGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="./twentytwelve/js/navigation.js" id="twentytwelve-navigation-js"></script>
+<script type="text/javascript" src="./isScroll.js" id="iscroll-script-js"></script>
+<script type="text/javascript" src="./loban.js" id="thuocloban-script-js"></script>
               <style>
                   @media (min-width: 561px) {
-                      .devvn_toolbar {
+                      .qt_toolbar {
                           position: fixed;
                           bottom: 20px;
                           left: 10px;
                           z-index: 99999999;
                       }
-                      .devvn_toolbar ul {
+                      .qt_toolbar ul {
                           list-style: none;
                           margin: 0;
                           padding: 0;
                       }
-                      .devvn_toolbar ul li {
+                      .qt_toolbar ul li {
                           padding: 0;
                           margin: 0;
                           list-style: none;
                       }
-                      .devvn_toolbar ul li a {
+                      .qt_toolbar ul li a {
                           display: block;
                           position: relative;
                       }
-                      .devvn_toolbar ul li a > div{
+                      .qt_toolbar ul li a > div{
                           width: 45px;
                           height: 45px;
                           border-radius: 50%;
@@ -946,10 +803,10 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           align-items: center;
                           justify-content: center;
                       }
-                      .devvn_toolbar ul li a br {
+                      .qt_toolbar ul li a br {
                           display: none;
                       }
-                      .devvn_toolbar ul li a span {
+                      .qt_toolbar ul li a span {
                           font-weight: 400;
                           color: #ffffff;
                           position: absolute;
@@ -969,11 +826,11 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           opacity: 0;
                           visibility: hidden;
                       }
-                      .devvn_toolbar ul li a:hover span{
+                      .qt_toolbar ul li a:hover span{
                           opacity: 1;
                           visibility: visible;
                       }
-                      .devvn_toolbar ul li a span:after {
+                      .qt_toolbar ul li a span:after {
                           right: 100%;
                           top: 50%;
                           border: solid transparent;
@@ -987,7 +844,7 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           border-width: 5px;
                           margin-top: -5px;
                       }
-                      .devvn_toolbar ul li a img {
+                      .qt_toolbar ul li a img {
                           width: auto;
                           height: auto;
                           max-width: 35px;
@@ -996,14 +853,14 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           box-shadow: none;
                           border: 0;
                       }
-                      .devvn_contact_quickbuy_li, .devvn_contact_addtocart_li{
+                      .qt_contact_quickbuy_li, .qt_contact_addtocart_li{
                           display: none;
                       }
                       
 
-                      .devvn_toolbar ul li a.animation_tada > div {
-                          animation-name: devvn_tada;
-                          -webkit-animation-name: devvn_tada;
+                      .qt_toolbar ul li a.animation_tada > div {
+                          animation-name: qt_tada;
+                          -webkit-animation-name: qt_tada;
                           animation-delay: 0s;
                           -webkit-animation-delay: 0s;
                           animation-duration: 1.5s;
@@ -1013,9 +870,9 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           cursor: pointer;
                           box-shadow: 0 0 0 0 #c31d1d;
                       }
-                      .devvn_toolbar ul li a.animation_zoom > div {
-                          animation-name: devvn_zoom;
-                          -webkit-animation-name: devvn_zoom;
+                      .qt_toolbar ul li a.animation_zoom > div {
+                          animation-name: qt_zoom;
+                          -webkit-animation-name: qt_zoom;
                           animation-delay: 0s;
                           -webkit-animation-delay: 0s;
                           animation-duration: 1.5s;
@@ -1025,7 +882,7 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           cursor: pointer;
                           box-shadow: 0 0 0 0 #c31d1d;
                       }
-                      @-webkit-keyframes devvn_tada {
+                      @-webkit-keyframes qt_tada {
                           0% {
                               -webkit-transform: scale(1);
                               transform: scale(1)
@@ -1052,7 +909,7 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           }
                       }
 
-                      @keyframes devvn_tada {
+                      @keyframes qt_tada {
                           0% {
                               -webkit-transform: scale(1);
                               -ms-transform: scale(1);
@@ -1084,7 +941,7 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           }
                       }
 
-                      @-webkit-keyframes devvn_zoom {
+                      @-webkit-keyframes qt_zoom {
                           0% {
                               transform: scale(.9)
                           }
@@ -1100,7 +957,7 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           }
                       }
 
-                      @keyframes devvn_zoom {
+                      @keyframes qt_zoom {
                           0% {
                               transform: scale(.9)
                           }
@@ -1116,9 +973,9 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           }
                       }
 
-                      .devvn_toolbar ul li a.animation_swing img{
-                          animation-name: devvn_swing;
-                          -webkit-animation-name: devvn_swing;
+                      .qt_toolbar ul li a.animation_swing img{
+                          animation-name: qt_swing;
+                          -webkit-animation-name: qt_swing;
                           animation-iteration-count: infinite;
                           -webkit-animation-iteration-count: infinite;
                           animation-duration: 1s;
@@ -1128,7 +985,7 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           animation-timing-function: ease-in;
                           -webkit-animation-timing-function: ease-in;
                       }
-                      @-webkit-keyframes devvn_swing {
+                      @-webkit-keyframes qt_swing {
                           20% {
                               -webkit-transform: rotate3d(0,0,1,15deg);
                               transform: rotate3d(0,0,1,15deg)
@@ -1155,7 +1012,7 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           }
                       }
 
-                      @keyframes devvn_swing {
+                      @keyframes qt_swing {
                           20% {
                               -webkit-transform: rotate3d(0,0,1,15deg);
                               transform: rotate3d(0,0,1,15deg)
@@ -1181,20 +1038,20 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                               transform: rotate3d(0,0,1,0deg)
                           }
                       }
-                      body .devvn_toolbar.devvn_toolbar_right {
+                      body .qt_toolbar.qt_toolbar_right {
                           left:auto;
                           bottom: 20px;
                           right: 10px;
                       }
 
-                      body .devvn_toolbar.devvn_toolbar_right ul li a span {
+                      body .qt_toolbar.qt_toolbar_right ul li a span {
                           right: calc(100% + 10px);
                           right: -webkit-calc(100% + 10px);
                           right: -moz-calc(100% + 10px);
                           left: auto
                       }
 
-                      .devvn_toolbar.devvn_toolbar_right ul li a span:after {
+                      .qt_toolbar.qt_toolbar_right ul li a span:after {
                           left: 100%;
                           right: 0;
                           transform: rotate(180deg);
@@ -1203,11 +1060,11 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                       }
                   }
                   @media (max-width: 560px) {
-                      body.has_devvn_toolbar {
+                      body.has_qt_toolbar {
                           padding-bottom: 50px;
                       }
 
-                      .devvn_toolbar {
+                      .qt_toolbar {
                           background: #fff;
                           display: inline-block;
                           width: 100%;
@@ -1235,7 +1092,7 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           padding-bottom: env(safe-area-inset-bottom);
                       }
 
-                      .show_contactfix .devvn_toolbar {
+                      .show_contactfix .qt_toolbar {
                           transform: translate3d(0,0,0);
                           -moz-transform: translate3d(0,0,0);
                           -webkit-transform: translate3d(0,0,0);
@@ -1244,7 +1101,7 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                       }
 
                       
-                      .devvn_toolbar ul {
+                      .qt_toolbar ul {
                           list-style: none;
                           padding: 0;
                           margin: 0;
@@ -1257,7 +1114,7 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           flex-flow: row wrap;
                       }
 
-                      .devvn_toolbar ul li {
+                      .qt_toolbar ul li {
                           flex-grow: 1;
                           flex-shrink: 1;
                           flex-basis: 0;
@@ -1266,7 +1123,7 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
             margin-bottom: 0;
                       }
 
-                      .devvn_toolbar ul li a{
+                      .qt_toolbar ul li a{
                           display: block;
                           width: 100%;
                           outline: none;
@@ -1275,7 +1132,7 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           white-space: nowrap;
                       }
 
-                      .devvn_toolbar ul li a span {
+                      .qt_toolbar ul li a span {
                           font-weight: 400;
                           color: #ffffff;
                           background: transparent;
@@ -1284,32 +1141,14 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           margin: 2px 0 0 0;
                       }
 
-                      .devvn_toolbar ul li a img {
+                      .qt_toolbar ul li a img {
                           height: 6vw;
                           width: auto;
                           margin: 0;
                       }
 
-                      .woocommerce-checkout .devvn_toolbar {
+                      .woocommerce-checkout .qt_toolbar {
                           display: none !important;
-                      }
-                      .devvn_toolbar a.devvn_buy_now_style {
-                          margin: 0;
-                          border-radius: 0;
-                          padding: 5px 8px;
-                          font-size: initial;
-                          line-height: inherit;
-                      }
-
-                      .devvn_toolbar a.devvn_buy_now_style span {
-                          margin: 0;
-                          padding: 0;
-                      }
-                      .devvn_toolbar a.devvn_buy_now_style span {
-                          background: none !important;
-                      }
-                      a#devvn_contact_addtocart {
-                          background: #e03232 !important;
                       }
                   }
                   .mfp-wrap, .mfp-bg {
@@ -1331,13 +1170,6 @@ var thuocloban = {"ajaxurl":"https:\/\/demoplugins.webmau68.com\/wp-admin\/admin
                           dcf_scroll_element();
                           $(window).scroll(function(){
                               dcf_scroll_element();
-                          });
-                          $('#devvn_contact_addtocart').on('click', function() {
-                              $('.summary form.cart .single_add_to_cart_button').trigger('click');
-                              if($('.summary form.cart .single_add_to_cart_button').is('.disabled')){
-                                  var top = $('.summary form.cart').offset().top;
-                                  $('html, body').animate({scrollTop:top-44}, 500 );
-                              }
                           });
                       });
                   })(jQuery);
